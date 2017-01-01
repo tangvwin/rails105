@@ -9,6 +9,7 @@ end
 
   def show
     @group = Group.find(params[:id])
+    @posts = @group.posts
   end
 
   def edit
@@ -17,7 +18,9 @@ end
 
 def new
   @group = Group.new
+
 end
+
 
 def create
   @group = Group.new(group_params)
@@ -41,7 +44,7 @@ def create
  end
 
  def destroy
-   
+
 
    @group.destroy
    redirect_to groups_path, alert: "Group deleted"
